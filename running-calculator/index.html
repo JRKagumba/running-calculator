@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Password Generator</title>
+        <title>Running Calculator</title>
         <link rel="icon" type="image/png" href="/images/favicon.png">
         <link rel="stylesheet" href="style.css" />
         <script src="script.js" defer></script>
@@ -13,24 +13,34 @@
         <div class="pw-container">
             <div class="pw-body">
 
-                <h1>Random<br>Password Generator</h1>
+                <h1>Running Calculator</h1>
+                <hr class="solid">
 
+                <h2>Convert Kms to Miles</h2>
                 <div class="form-control">
                     <label for="len">Password Length</label>
                     <input id="len" value="15" type="number" min="2" max="30" />
                 </div>
+
+                <h2>Covert Speed to Pace</h2>
                 <div class="form-control">
                     <label for="upper">Include Uppercase Letters</label>
                     <input id="upper" type="checkbox" />
                 </div>
+
+                <h2>Calculate Pace from Time and Distance</h2>
                 <div class="form-control">
                     <label for="lower">Include Lowercase Letters</label>
                     <input id="lower" type="checkbox" />
                 </div>
+
+                <h2>Calculate Time from Distance and Pace</h2>
                 <div class="form-control">
                     <label for="number">Include Numbers</label>
                     <input id="number" type="checkbox" />
                 </div>
+
+                <h2>Calculate Distance from Time and Pace</h2>
                 <div class="form-control">
                     <label for="symbol">Include Symbols</label>
                     <input id="symbol" type="checkbox" />
