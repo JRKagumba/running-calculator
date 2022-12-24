@@ -15,18 +15,18 @@ body {
     min-height: 100vh;
 }
 
-.pw-container {
+.run-container {
     border-radius: 15px;
     background-color: #4E6E5D;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     min-width: 400px;
 }
 
-.pw-header {
+.run-header {
     padding: 1rem;
 }
 
-.pw {
+.run {
     border-radius: 15px;
     background-color: #4DA167;
     display: flex;
@@ -39,7 +39,7 @@ body {
     overflow: auto;
 }
 
-.pw button {
+.run button {
     border-radius: 15px;
     background-color: white;
     border: none;
@@ -56,12 +56,12 @@ body {
     opacity: 0;
 }
 
-.pw:hover button {
+.run:hover button {
     opacity: 1;
     transform: translate(0, 0%);
 }
 
-.pw-body {
+.run-body {
     padding: 0 1rem 1rem;
 }
 
