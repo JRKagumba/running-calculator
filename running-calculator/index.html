@@ -18,12 +18,19 @@
 
                 <!--01_conv_km2miles-->
                 <h2>Convert Kms to Miles</h2> 
-                <form name="form-1" onsubmit="return false">
+                <form name="form_1a" onsubmit="return false">
                     <div class="form-control">
-                        <input type="text" name="fname"> Kms = 
-                        <input type="text" name="lname"> Miles
+                        <input type="text" name="unit_input" maxlength="20" value="0"
+                        onkeyup="CalculateUnit(document.form_1a, document.form_1b)"> Kms =
                     </div>
                 </form>
+                <form name="form_1b" onsubmit="return false">
+                    <div class="form-control">
+                        <input type="text" name="unit_input" maxlength="20" value="0"
+                        onkeyup="CalculateUnit(document.form_1b, document.form_1a)"> Miles
+                    </div>
+                </form>
+
 
                 <!--02_conv_speed2pace-->
                 <h2>Covert Speed to Pace</h2>

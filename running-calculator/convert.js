@@ -23,3 +23,22 @@ function CalculateUnit(sourceForm, targetForm) {
       ConvertFromTo(sourceForm, targetForm);
     }
   }
+
+function ConvertFromTo(sourceForm, targetForm) {
+
+    var formname 
+    var result
+
+
+    formname = document.forms[0].name;
+    result = sourceForm.unit_input.value;
+
+    if (formname == "form_1a") {
+        result = kmToMiles(result)
+    } else if (formname == "form_1b") {
+        result = milesToKm(result)
+    }
+    
+    targetForm.unit_input.value = result;
+
+}
