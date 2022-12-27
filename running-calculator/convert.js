@@ -2,14 +2,12 @@
 
 
 function kmToMiles(kilometers) {
-    const conversionFactor = 0.621371;
-    return kilometers * conversionFactor;
+    return kilometers * 0.621371;
   }
 
 function milesToKm(miles) {
-const conversionFactor = 1.60934;
-return miles * conversionFactor;
-}
+    return miles * 1.60934;
+  }
 
 
 
