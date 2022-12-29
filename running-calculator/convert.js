@@ -10,7 +10,8 @@ function milesToKm(miles) {
 
 // Convert paces/speeds down to meters/sec then re-calculate back to desired pace/speed
 
-// Min per Mile
+// ************
+// MIN PER MILE
 function tpmTomps(timePerMile){
   // time per mile to mins per sec
   const [minutes, seconds] = timePerMile.split(':').map(Number); // Split the time string into minutes and seconds
@@ -27,17 +28,23 @@ function mpsTotpm(metersPerSecond){
   return timePerMile;
 }
 
-// MPH
-function mphTomps(){
+// **************
+// MILES PER HOUR
+function mphTomps(mph){
 // miles per hour to mins per sec
-  
+  const kph = milesToKm(mph);
+  const mps = kph / 3.6;
+  return mps; 
   }
-function mpsTomph(){
+function mpsTomph(mps){
 // mins per sec to miles per hour
-
+  const kph = mps * 3.6;
+  const mph = kph / 1.60934;
+  return mph;
 }
 
-// Min per Km
+// ***********
+// MIN PER KM
 function tpkTomps(timePerKm){
   // time per km to mins per sec
   const [minutes, seconds] = timePerKm.split(':').map(Number); // Split the time string into minutes and seconds
@@ -45,20 +52,26 @@ function tpkTomps(timePerKm){
   const metersPerSecond = 1000 / timeInSeconds;   // Convert seconds per kilometer to meters per second
   return metersPerSecond;
     }
-function mpsTotpk(){
+function mpsTotpk(metersPerSecond){
   // mins per sec to time per km
-  
+  const secondsPerKilometer = 1000 / metersPerSecond;   // Convert meters per second to seconds per kilometer
+  const minutes = Math.floor(secondsPerKilometer / 60); // Convert seconds per kilometer to minutes and seconds
+  const seconds = Math.round(secondsPerKilometer % 60); // Convert seconds per kilometer to minutes and seconds
+  const timePerKilometer = `${minutes}:${seconds.toString().padStart(2, '0')}`; // Format the time as a string
+  return timePerKilometer;
   }
 
 
 // KPH
-function kphTomps(){
+function kphTomps(kph){
   // km per hour to mins per sec
-    
-    }
-function mpsTokph(){
+  const mps = kph / 3.6;
+  return mps;
+  }
+function mpsTokph(mps){
   // mins per sec to km per hour
-  
+  const kph = mps * 3.6;
+  return kph;
   }
 
 
