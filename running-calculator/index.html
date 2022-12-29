@@ -21,13 +21,13 @@
                 <form id="form_1a" name="form_1a" onsubmit="return false">
                     <div class="form-control">
                         <input type="text" name="unit_input" maxlength="20" value="0"
-                        onkeyup="ConvertUnit(document.form_1a, document.form_1b)"> Kms =
+                        onkeyup="ConvertDist(document.form_1a, document.form_1b)"> Kms =
                     </div>
                 </form>
                 <form id="form_1b" name="form_1b" onsubmit="return false">
                     <div class="form-control">
                         <input type="text" name="unit_input" maxlength="20" value="0"
-                        onkeyup="ConvertUnit(document.form_1b, document.form_1a)"> Miles
+                        onkeyup="ConvertDist(document.form_1b, document.form_1a)"> Miles
                     </div>
                 </form>
 
@@ -36,34 +36,42 @@
                 <h2>Covert Speed to Pace</h2>
                 <form id="form_2a" name="form_2a" onsubmit="return false">
                     <div class="form-control">
-                        <input type="text" name="unit_input" maxlength="20" value="0"
-                        onkeyup="ConvertUnit(document.form_2a, document.form_2b)"> mins:sec/mile
+                        <input type="text" name="unit_input" pattern="\d\d:\d\d" placeholder="mm:ss"
+                        onkeyup="ConvertPace(document.form_2a, document.form_2b,document.form_2c,document.form_2d)"> mins:sec/mile
                     </div>
                 </form>
                 <form id="form_2b" name="form_2b" onsubmit="return false">
                     <div class="form-control">
-                        <input type="text" name="unit_input" maxlength="20" value="0"
-                        onkeyup="ConvertUnit(document.form_2b, document.form_2a)"> mph
+                        <input type="text" name="unit_input" maxlength="2" value="0"
+                        onkeyup="ConvertPace(document.form_2b, document.form_2a,document.form_2c,document.form_2d)"> mph
                     </div>
                 </form>
                 <form id="form_2c" name="form_2c" onsubmit="return false">
                     <div class="form-control">
-                        <input type="text" name="unit_input" maxlength="20" value="0"
-                        onkeyup="ConvertUnit(document.form_2a, document.form_2b)"> mins:sec/km
+                        <input type="text" name="unit_input" pattern="\d\d:\d\d" placeholder="mm:ss"
+                        onkeyup="ConvertPace(document.form_2c, document.form_2a,document.form_2b,document.form_2d)"> mins:sec/km
                     </div>
                 </form>
                 <form id="form_2d" name="form_2d" onsubmit="return false">
                     <div class="form-control">
-                        <input type="text" name="unit_input" maxlength="20" value="0"
-                        onkeyup="ConvertUnit(document.form_2b, document.form_2a)"> kph
+                        <input type="text" name="unit_input" maxlength="2" value="0"
+                        onkeyup="ConvertPace(document.form_2d, document.form_2a,document.form_2b,document.form_2c)"> kph
                     </div>
                 </form>
 
                 <!--03_calc_pace-->
                 <h2>Calculate Pace from Time and Distance</h2>
                 <div class="form-control">
-                    <label for="lower">Include Lowercase Letters</label>
-                    <input id="lower" type="checkbox" />
+                    <label for="fruit">Enter Distance:</label>
+                    <input list="fruits" name="fruit" id="fruit">
+                    <datalist id="fruits">
+                      <option value="Marathon">
+                      <option value="Half-Marathon">
+                    </datalist>
+                </div>
+                <div class="form-control">
+                    <label for="fruit">Enter Time:</label>
+                    <input type="text" name="unit_input" pattern="\d\d:\d\d:\d\d" placeholder="hh:mm:ss">
                 </div>
 
                 <!--04_calc_time-->
