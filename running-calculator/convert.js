@@ -30,7 +30,7 @@ function ConvertFromTo(sourceForm, targetForm) {
     var result
 
 
-    formname = document.forms[0].name;
+    formname = document.forms[1].name;
     result = sourceForm.unit_input.value;
 
     if (formname == "form_1a") {
