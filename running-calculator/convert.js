@@ -8,6 +8,12 @@ function milesToKm(miles) {
     return miles * 1.60934;
   }
 
+function isTimeFormat(time) {
+  // Use a regular expression to test the time string
+  const pattern = /^\d\d:\d\d$/;
+  return pattern.test(time);
+}
+
 // Convert paces/speeds down to meters/sec then re-calculate back to desired pace/speed
 
 // ************
