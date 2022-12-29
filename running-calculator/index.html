@@ -7,7 +7,7 @@
         <title>Running Calculator</title>
         <link rel="icon" type="image/png" href="/images/favicon.png">
         <link rel="stylesheet" href="style.css" />
-        <script src="script.js" defer></script>
+        <script src="convert.js" defer></script>
     </head>
     <body>
         <div class="run-container">
@@ -18,26 +18,46 @@
 
                 <!--01_conv_km2miles-->
                 <h2>Convert Kms to Miles</h2> 
-                <form name="form_1a" onsubmit="return false">
+                <form id="form_1a" name="form_1a" onsubmit="return false">
                     <div class="form-control">
                         <input type="text" name="unit_input" maxlength="20" value="0"
-                        onkeyup="CalculateUnit(document.form_1a, document.form_1b)"> Kms =
+                        onkeyup="ConvertUnit(document.form_1a, document.form_1b)"> Kms =
                     </div>
                 </form>
-                <form name="form_1b" onsubmit="return false">
+                <form id="form_1b" name="form_1b" onsubmit="return false">
                     <div class="form-control">
                         <input type="text" name="unit_input" maxlength="20" value="0"
-                        onkeyup="CalculateUnit(document.form_1b, document.form_1a)"> Miles
+                        onkeyup="ConvertUnit(document.form_1b, document.form_1a)"> Miles
                     </div>
                 </form>
 
 
                 <!--02_conv_speed2pace-->
                 <h2>Covert Speed to Pace</h2>
-                <div class="form-control">
-                    <label for="upper">Include Uppercase Letters</label>
-                    <input id="upper" type="checkbox" />
-                </div>
+                <form id="form_2a" name="form_2a" onsubmit="return false">
+                    <div class="form-control">
+                        <input type="text" name="unit_input" maxlength="20" value="0"
+                        onkeyup="ConvertUnit(document.form_2a, document.form_2b)"> mins:sec/mile
+                    </div>
+                </form>
+                <form id="form_2b" name="form_2b" onsubmit="return false">
+                    <div class="form-control">
+                        <input type="text" name="unit_input" maxlength="20" value="0"
+                        onkeyup="ConvertUnit(document.form_2b, document.form_2a)"> mph
+                    </div>
+                </form>
+                <form id="form_2c" name="form_2c" onsubmit="return false">
+                    <div class="form-control">
+                        <input type="text" name="unit_input" maxlength="20" value="0"
+                        onkeyup="ConvertUnit(document.form_2a, document.form_2b)"> mins:sec/km
+                    </div>
+                </form>
+                <form id="form_2d" name="form_2d" onsubmit="return false">
+                    <div class="form-control">
+                        <input type="text" name="unit_input" maxlength="20" value="0"
+                        onkeyup="ConvertUnit(document.form_2b, document.form_2a)"> kph
+                    </div>
+                </form>
 
                 <!--03_calc_pace-->
                 <h2>Calculate Pace from Time and Distance</h2>
