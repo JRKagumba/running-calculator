@@ -11,16 +11,20 @@ function milesToKm(miles) {
 // Convert paces/speeds down to meters/sec then re-calculate back to desired pace/speed
 
 // Min per Mile
-function mpmTomps(timePerMile){
+function tpmTomps(timePerMile){
   // time per mile to mins per sec
   const [minutes, seconds] = timePerMile.split(':').map(Number); // Split the time string into minutes and seconds
   const timeInSeconds = minutes * 60 + seconds; // Convert the time to seconds
   const metersPerSecond = 1609.34 / timeInSeconds; // Convert seconds per mile to meters per second
   return metersPerSecond;
 }
-function mpsTompm(){
+function mpsTotpm(metersPerSecond){
   // mins per sec to time per mile
-
+  const secondsPerMile = 1609.34 / metersPerSecond;   // Convert meters per second to seconds per mile
+  const minutes = Math.floor(secondsPerMile / 60);  // Convert seconds per mile to minutes and seconds
+  const seconds = Math.round(secondsPerMile % 60);  // Convert seconds per mile to minutes and seconds
+  const timePerMile = `${minutes}:${seconds.toString().padStart(2, '0')}`;  // Format the time as a string
+  return timePerMile;
 }
 
 // MPH
@@ -34,14 +38,14 @@ function mpsTomph(){
 }
 
 // Min per Km
-function mpkTomps(timePerKm){
+function tpkTomps(timePerKm){
   // time per km to mins per sec
   const [minutes, seconds] = timePerKm.split(':').map(Number); // Split the time string into minutes and seconds
   const timeInSeconds = minutes * 60 + seconds;   // Convert the time to seconds
   const metersPerSecond = 1000 / timeInSeconds;   // Convert seconds per kilometer to meters per second
   return metersPerSecond;
     }
-function mpsTomph(){
+function mpsTotpk(){
   // mins per sec to time per km
   
   }
