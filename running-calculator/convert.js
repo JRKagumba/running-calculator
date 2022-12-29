@@ -10,7 +10,7 @@ function milesToKm(miles) {
 
 function isTimeFormat(time) {
   // Use a regular expression to test the time string
-  const pattern = /^\d\d:\d\d$/;
+  const pattern = /^\d?\d:\d\d$/;
   return pattern.test(time);
 }
 
@@ -46,7 +46,7 @@ function mpsTomph(mps){
 // mins per sec to miles per hour
   const kph = mps * 3.6;
   const mph = kph / 1.60934;
-  return mph;
+  return mph.toFixed(2);
 }
 
 // ***********
@@ -77,7 +77,7 @@ function kphTomps(kph){
 function mpsTokph(mps){
   // mins per sec to km per hour
   const kph = mps * 3.6;
-  return kph;
+  return kph.toFixed(2);
   }
 
 
@@ -108,38 +108,44 @@ function ConvertDist(sourceForm, targetForm) {
 
 
 
+function ConvertPace(sourceForm, targetForm_A, targetForm_B, targetForm_C){
 
-function ConvertFromTo(sourceForm, targetForm) {
-
-  var form = document.sourceForm;
+  var form = sourceForm;
+  var result = sourceForm.unit_input.value;
 
   switch (form.name) {
-    case "form_1a":
-      result = kmToMiles(result);
+    case "form_2a":   //TPM
+      if (isTimeFormat(result)){
+        // const mps = 
+        targetForm_A.unit_input.value = mpsTomph(tpmTomps(result));
+        targetForm_B.unit_input.value = mpsTotpk(tpmTomps(result));
+        targetForm_C.unit_input.value = mpsTokph(tpmTomps(result));
+      }
+      
       break;
-    case "form_1b":
-      result = milesToKm(result);
+    case "form_2b":   //MPH
+      // let mps = 
+      targetForm_A.unit_input.value = mpsTotpm(mphTomps(result));
+      targetForm_B.unit_input.value = mpsTotpk(mphTomps(result));
+      targetForm_C.unit_input.value = mpsTokph(mphTomps(result));     
       break;
-    default:
-      console.log("x is not 1 or 2");
+    case "form_2c":   //TPK
+      if (isTimeFormat(result)){
+        // const mps = tpkTomps(result)
+        targetForm_A.unit_input.value = mpsTotpm(tpkTomps(result));
+        targetForm_B.unit_input.value = mpsTomph(tpkTomps(result));
+        targetForm_C.unit_input.value = mpsTokph(tpkTomps(result));
+      }
+      break;
+    case "form_2d":   //KPH
+      // const mps = kphTomps(result)
+      targetForm_A.unit_input.value = mpsTotpm(kphTomps(result));
+      targetForm_B.unit_input.value = mpsTomph(kphTomps(result));
+      targetForm_C.unit_input.value = mpsTotpk(kphTomps(result));     
+      break;
   }
 
-
-    // var formname 
-    
-    // formname = sourceForm.unit_input.name;
-    // // formname = document.forms[0].name;
-    // // formid = 
-    // result = sourceForm.unit_input.value;
-
-    
-
-    // if (formname == "form_1a") {
-    //     result = kmToMiles(result)
-    // } else if (formname == "form_1b") {
-    //     result = milesToKm(result)
-    // }
-    
-    targetForm.unit_input.value = result;
-
 }
+
+
+
