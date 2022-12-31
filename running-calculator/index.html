@@ -33,7 +33,7 @@
 
 
                 <!--02_conv_speed2pace-->
-                <h2>Covert Speed to Pace</h2>
+                <h2>Convert Speed to Pace</h2>
                 <form id="form_2a" name="form_2a" onsubmit="return false">
                     <div class="form-control">
                         <input type="text" name="unit_input" pattern="\d\d:\d\d" placeholder="mm:ss"
@@ -68,28 +68,81 @@
                       <option value="Marathon">
                       <option value="Half-Marathon">
                     </datalist>
+                    <input type="radio" id="km" name="unit" value="km">
+                    <label for="km">km</label>
+                    <input type="radio" id="mi" name="unit" value="mi">
+                    <label for="mi">mi</label>
                 </div>
                 <div class="form-control">
                     <label for="fruit">Enter Time:</label>
                     <input type="text" name="unit_input" pattern="\d\d:\d\d:\d\d" placeholder="hh:mm:ss">
                 </div>
+                <div class="form-control">
+                    <label for="cars">PACE/SPEED:</label>
+                    <input type="text" id="lname" name="lname" disabled>
+                    <select id="cars" name="cars">
+                        <option value="volvo">mins:sec/mile</option>
+                        <option value="saab">mins:sec/km</option>
+                        <option value="opel">mph</option>
+                        <option value="audi">kph</option>
+                    </select>
+                </div>
+                
 
                 <!--04_calc_time-->
                 <h2>Calculate Time from Distance and Pace</h2>
                 <div class="form-control">
-                    <label for="number">Include Numbers</label>
-                    <input id="number" type="checkbox" />
+                    <label for="fruit">Enter Distance:</label>
+                    <input list="fruits" name="fruit" id="fruit">
+                    <datalist id="fruits">
+                      <option value="Marathon">
+                      <option value="Half-Marathon">
+                    </datalist>
+                    <input type="radio" id="km" name="unit" value="km">
+                    <label for="km">km</label>
+                    <input type="radio" id="mi" name="unit" value="mi">
+                    <label for="mi">mi</label>
                 </div>
+                <div class="form-control">
+                    <label for="cars">Enter Pace/Speed:</label>
+                    <input type="text" id="lname" name="lname">
+                    <select id="cars" name="cars">
+                        <option value="volvo">mins:sec/mile</option>
+                        <option value="saab">mins:sec/km</option>
+                        <option value="opel">mph</option>
+                        <option value="audi">kph</option>
+                    </select>
+                </div>
+                <div class="form-control">
+                    <label for="fruit">TIME:</label>
+                    <input type="text" name="unit_input" pattern="\d\d:\d\d:\d\d" placeholder="hh:mm:ss" disabled>
+                </div>
+
 
                 <!--04_calc_distance-->
                 <h2>Calculate Distance from Time and Pace</h2>
                 <div class="form-control">
-                    <label for="symbol">Include Symbols</label>
-                    <input id="symbol" type="checkbox" />
+                    <label for="cars">Enter Pace/Speed:</label>
+                    <input type="text" id="lname" name="lname">
+                    <select id="cars" name="cars">
+                        <option value="volvo">mins:sec/mile</option>
+                        <option value="saab">mins:sec/km</option>
+                        <option value="opel">mph</option>
+                        <option value="audi">kph</option>
+                    </select>
                 </div>
-                <button class="generate" id="generate">
-                    Generate Password
-                </button>
+                <div class="form-control">
+                    <label for="fruit">Enter Time:</label>
+                    <input type="text" name="unit_input" pattern="\d\d:\d\d:\d\d" placeholder="hh:mm:ss">
+                </div>
+                <div class="form-control">
+                    <label for="fruit">DISTANCE:</label>
+                    <input list="fruits" name="fruit" id="fruit" disabled>
+                    <input type="radio" id="km" name="unit" value="km">
+                    <label for="km">km</label>
+                    <input type="radio" id="mi" name="unit" value="mi">
+                    <label for="mi">mi</label>
+                </div>
 
                 <hr class="solid">
 
