@@ -5,6 +5,9 @@ A simple site I created to help me do quick running based conversions when devel
 
 Try it out at [randompasswordgenerator.io](https://random-password-generator.io/)
 
+
+Perceived effort is a subjective measure of how hard someone feels like they are working during physical activity, such as running. It is influenced by factors such as the intensity of the exercise, the individual's level of fitness, and their psychological state.
+
 ## Background and Motivation
 
 I found that I was often prompted to come up with complex password combinations when creating new accounts for on various sites. I decided to create my own simple web app that randomly generated a password as well as a helpful mneumonic to help in remembering the password. 
