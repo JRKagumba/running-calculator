@@ -6,18 +6,23 @@ const dictionary = {
 }
 
 
-function calculateSpeed(distance, time) {
-    // Split the time string into minutes and seconds
-    const [minutes, seconds] = time.split(':');
+
+
+function calculatePace(distance, time) {
+    // Split the time string into hours, minutes, and seconds
+    const [hours, minutes, seconds] = time.split(':');
   
-    // Convert minutes and seconds to total seconds
-    const totalSeconds = (parseInt(minutes, 10) * 60) + parseInt(seconds, 10);
+    // Convert hours, minutes, and seconds to total seconds
+    const totalSeconds = (parseInt(hours, 10) * 3600) + (parseInt(minutes, 10) * 60) + parseInt(seconds, 10);
   
-    // Calculate speed in meters per second
-    const speed = distance / totalSeconds;
+    // Calculate pace in meters per second
+    const pace = distance / totalSeconds;
   
-    // Return the speed in kilometers per hour
-    return (speed * 3.6).toFixed(2);
+    // Return the pace in meters per second
+    return pace.toFixed(2);
   }
+  
+
+  
   
   
