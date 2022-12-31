@@ -23,6 +23,37 @@ function calculatePace(distance, time) {
   }
   
 
+function calculateTime(distance, speed) {
+    // Calculate total seconds
+    const totalSeconds = distance / speed;
+
+    // Calculate hours, minutes, and seconds
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = Math.floor(totalSeconds % 60);
+
+    // Format time as 'hh:mm:ss'
+    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+
+    
+function calculateDistance(time, speed) {
+    // Split the time string into hours, minutes, and seconds
+    const [hours, minutes, seconds] = time.split(':');
+
+    // Convert hours, minutes, and seconds to total seconds
+    const totalSeconds = (parseInt(hours, 10) * 3600) + (parseInt(minutes, 10) * 60) + parseInt(seconds, 10);
+
+    // Calculate distance in meters
+    const distance = totalSeconds * speed;
+
+    // Return the distance in kilometers
+    return (distance / 1000).toFixed(2);
+    }
+
+
+  
+
   
   
   
