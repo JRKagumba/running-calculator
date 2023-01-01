@@ -169,7 +169,7 @@ function UpdateTime() {
 
 
 
-function calculateDistance(time, speed, speed_units, dist_units){
+function calculateDistance(speed, speed_units, time, dist_units){
     // Convert time to seconds
     const timeComponents = time.split(':');
     let timeInSeconds = 0;
@@ -224,15 +224,15 @@ function calculateDistance(time, speed, speed_units, dist_units){
 
 function UpdateDistance() {
   // Get the values of the input fields
-  var form_4a = document.getElementById('form_4a').value; //distance value
-  var form_4b = document.querySelector('input[name="form_4b"]:checked').value; //distance unit
-  var form_4c = document.getElementById('form_4c').value; //pace value
-  var form_4d = document.getElementById('form_4d').value; //pace unit
+  var form_5a = document.getElementById('form_5a').value; //pace value
+  var form_5b = document.getElementById('form_5b').value; //pace unit
+  var form_5c = document.getElementById('form_5c').value; //time
+  var form_5d = document.querySelector('input[name="form_5d"]:checked').value; //distance unit
 
   
   // Update the output field based on the input values
-  var output = document.getElementById('form4_output');
-  output.value = calculateDistance(form_4a, form_4b, form_4c, form_4d); 
+  var output = document.getElementById('form5_output');
+  output.value = calculateDistance(form_5a, form_5b, form_5c, form_5d); 
 
 }
 

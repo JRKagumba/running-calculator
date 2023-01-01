@@ -124,35 +124,41 @@
                     <div class="form-control">
                         <label for="fruit">TIME:</label>
                         <input type="text" id="form4_output" name="unit_input" 
-                        pattern="\d\d:\d\d:\d\d" placeholder="hh:mm:ss" disabled>
+                         placeholder="hh:mm:ss" disabled> 
                     </div>
                 </form>
 
 
                 <!--04_calc_distance-->
                 <h2>Calculate Distance from Time and Pace</h2>
-                <div class="form-control">
-                    <label for="cars">Enter Pace/Speed:</label>
-                    <input type="text" id="lname" name="lname">
-                    <select id="cars" name="cars">
-                        <option value="volvo">mins:sec/mile</option>
-                        <option value="saab">mins:sec/km</option>
-                        <option value="opel">mph</option>
-                        <option value="audi">kph</option>
-                    </select>
-                </div>
-                <div class="form-control">
-                    <label for="fruit">Enter Time:</label>
-                    <input type="text" name="unit_input" pattern="\d\d:\d\d:\d\d" placeholder="hh:mm:ss">
-                </div>
-                <div class="form-control">
-                    <label for="fruit">DISTANCE:</label>
-                    <input list="fruits" name="fruit" id="fruit" disabled>
-                    <input type="radio" id="km" name="unit" value="km" checked>
-                    <label for="km">km</label>
-                    <input type="radio" id="mi" name="unit" value="mi">
-                    <label for="mi">mi</label>
-                </div>
+                <form id="form_5" name="form_5" onsubmit="return false">
+                    <div class="form-control">
+                        <label for="cars">Enter Pace/Speed:</label>
+                        <input type="text" id="form_5a" name="unit_input" onchange="UpdateDistance()">
+                        <select id="form_5b" name="form_5b" onchange="UpdateDistance()">
+                            <option value="mm:ss/mi" selected>mins:sec/mile</option>
+                            <option value="mm:ss/km">mins:sec/km</option>
+                            <option value="mph">mph</option>
+                            <option value="kph">kph</option>
+                        </select>
+                    </div>
+                    <div class="form-control">
+                        <label for="fruit">Enter Time:</label>
+                        <input type="text" id="form_5c" name="unit_input" placeholder="hh:mm:ss" onchange="UpdateDistance()"> 
+                    </div>
+                    <div class="form-control">
+                        <label for="form_5">DISTANCE:</label>
+                        <input list="default_distances" id="form5_output" placeholder="0" disabled>
+                        <datalist id="default_distances">
+                        <option value="Marathon">
+                        <option value="Half-Marathon">
+                        </datalist>
+                        <input type="radio" id="km" name="form_5d" value="km" onchange="UpdateDistance()" checked>
+                        <label for="km">km</label>
+                        <input type="radio" id="mi" name="form_5d" value="mi" onchange="UpdateDistance()">
+                        <label for="mi">mi</label>
+                    </div>                    
+                </form>
 
                 <hr class="solid">
 
