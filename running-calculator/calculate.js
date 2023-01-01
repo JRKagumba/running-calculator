@@ -1,7 +1,7 @@
-import * as convTools from 'convert.js';
+// import * as convTools from 'convert.js';
 
 
-function ensureDistanceFormat(radioButton, textInput) {
+function ensureDistanceFormat(textInput, radioButton) {
     if (!radioButton.checked) {
       // select the radio button if it is not already selected
       radioButton.checked = true;
@@ -38,22 +38,73 @@ function ensurePaceFormat(input, type) {
       }
     }
   }
-  
 
-function calculatePace(distance, time) {
-    // Split the time string into hours, minutes, and seconds
-    const [hours, minutes, seconds] = time.split(':');
+function convertSpeed(mps, units) {
+    if (units === 'mm:ss/mi') {
+        // Convert meters per second to minutes per mile
+        const secondsPerMile = 1609.34 / mps;   // Convert meters per second to seconds per mile
+        const minutes = Math.floor(secondsPerMile / 60);  // Convert seconds per mile to minutes and seconds
+        const seconds = Math.round(secondsPerMile % 60);  // Convert seconds per mile to minutes and seconds
+        const timePerMile = `${minutes}:${seconds.toString().padStart(2, '0')}`;  // Format the time as a string
+        return timePerMile;
+    } else if (units === 'mm:ss/km') {
+        // Convert meters per second to minutes per km
+        const secondsPerKilometer = 1000 / mps;   // Convert meters per second to seconds per kilometer
+        const minutes = Math.floor(secondsPerKilometer / 60); // Convert seconds per kilometer to minutes and seconds
+        const seconds = Math.round(secondsPerKilometer % 60); // Convert seconds per kilometer to minutes and seconds
+        const timePerKilometer = `${minutes}:${seconds.toString().padStart(2, '0')}`; // Format the time as a string
+        return timePerKilometer;
+    } else if (units === 'mph') {
+        // Convert meters per second to miles per hour
+        const mph = mps * 2.23694;
+        return `${mph.toFixed(2)}`;
+    } else if (units === 'kph') {
+        // Convert meters per second to km per hour
+        const kph = mps * 3.6;
+        return `${kph.toFixed(2)}`;
+    }
+  }
+
+function calculatePace(distance, dist_units, time, pace_units) {
+    // Convert distance to meters
+    if (dist_units === 'km') {
+      distance = distance * 1000;
+    } else if (dist_units === 'mi') {
+      distance = distance * 1609.34;
+    }
   
-    // Convert hours, minutes, and seconds to total seconds
-    const totalSeconds = (parseInt(hours, 10) * 3600) + (parseInt(minutes, 10) * 60) + parseInt(seconds, 10);
-  
-    // Calculate pace in meters per second
-    const pace = distance / totalSeconds;
-  
-    // Return the pace in meters per second
-    return pace.toFixed(2);
+    // Convert time to seconds
+    const timeComponents = time.split(':');
+    let timeInSeconds = 0;
+    if (timeComponents.length === 3) {
+      // Time is in 'hh:mm:ss' format
+      timeInSeconds += parseInt(timeComponents[0]) * 3600;
+      timeInSeconds += parseInt(timeComponents[1]) * 60;
+      timeInSeconds += parseInt(timeComponents[2]);
+    } else if (timeComponents.length === 2) {
+      // Time is in 'mm:ss' format
+      timeInSeconds += parseInt(timeComponents[0]) * 60;
+      timeInSeconds += parseInt(timeComponents[1]);
+    }
+    
+    const pace = distance / timeInSeconds;  // Calculate speed in meters per second
+    return convertSpeed(pace, pace_units);
   }
   
+
+function UpdatePace() {   
+    // Get the values of the input fields
+    var form_3a = document.getElementById('form_3a').value; //distance value
+    var form_3b = document.querySelector('input[name="form_3b"]:checked').value; //distance unit
+    var form_3c = document.getElementById('form_3c').value; //time value
+    var form_3d = document.getElementById('form_3d').value; //pace unit
+
+    // Update the output field based on the input values
+    var output = document.getElementById('form3_output');
+    output.value = calculatePace(form_3a, form_3b, form_3c, form_3d);
+}
+
+
 
 function calculateTime(distance, speed) {
     // Calculate total seconds
@@ -68,6 +119,19 @@ function calculateTime(distance, speed) {
     return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     }
 
+
+function UpdateTime() {
+    // Get the values of the input fields
+    var form_4a = document.getElementById('form_4a').value; //distance value
+    var form_4b = document.querySelector('input[name="form_4b"]:checked').value; //distance unit
+    var form_4c = document.getElementById('form_4c').value; //pace value
+    var form_4d = document.getElementById('form_4d').value; //pace unit
+
+    // Update the output field based on the input values
+    var output = document.getElementById('form4_output');
+    output.value = form_4a + ' ' + form_4b+ ' ' +form_4c+ ' ' +form_4d// calculatePace(form_4a, form_4b, form_4c, form_4d);
+
+}
 
 function calculateDistance(time, speed) {
     // Split the time string into hours, minutes, and seconds
