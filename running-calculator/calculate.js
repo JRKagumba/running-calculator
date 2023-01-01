@@ -121,14 +121,14 @@ function calculateTime(distance, dist_units, speed, speed_units) {
         const minutes = parseInt(paceComponents[0]);
         const seconds = parseInt(paceComponents[1]);
         // Calculate speed in meters per second
-        speed =  (minutes * 60 + seconds) / 0.000621371 / 60;
+        speed =  1609.44 / ((minutes * 60) + seconds);
     } else if (speed_units === 'mm:ss/km') {
         // Split pace into minutes and seconds
         const paceComponents = speed.split(':');
         const minutes = parseInt(paceComponents[0]);
         const seconds = parseInt(paceComponents[1]);
         // Calculate speed in meters per second
-        speed =  (minutes * 60 + seconds) / 0.001 / 60;
+        speed =  1000 / ((minutes * 60) + seconds);
     } else if (speed_units === 'mph') {
       // Convert miles per hour to meters per second
       speed = speed / 2.23694;
@@ -137,11 +137,9 @@ function calculateTime(distance, dist_units, speed, speed_units) {
       speed = speed / 3.6;
     }
     
-    alert(speed)
     // Calculate time in seconds
     const timeInSeconds = distance / speed;
-  
-    
+        
     // Convert time to 'hh:mm:ss' format
     const hours = Math.floor(timeInSeconds / 3600);
     const minutes = Math.floor((timeInSeconds % 3600) / 60);
@@ -151,12 +149,8 @@ function calculateTime(distance, dist_units, speed, speed_units) {
     const minutesString = minutes.toString().padStart(2, '0');
     const secondsString = seconds.toString().padStart(2, '0');
     
-    // const time = `${hoursString}:${minutesString}:${secondsString}`;
     const time = hoursString + ':' + minutesString + ':' + secondsString;
-
     return time
-    // alert(`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`)
-    // return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
   }
   
 function UpdateTime() {
