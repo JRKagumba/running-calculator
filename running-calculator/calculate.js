@@ -167,19 +167,74 @@ function UpdateTime() {
 
 }
 
-function calculateDistance(time, speed) {
-    // Split the time string into hours, minutes, and seconds
-    const [hours, minutes, seconds] = time.split(':');
 
-    // Convert hours, minutes, and seconds to total seconds
-    const totalSeconds = (parseInt(hours, 10) * 3600) + (parseInt(minutes, 10) * 60) + parseInt(seconds, 10);
+
+function calculateDistance(time, speed, speed_units, dist_units){
+    // Convert time to seconds
+    const timeComponents = time.split(':');
+    let timeInSeconds = 0;
+    if (timeComponents.length === 3) {
+      // Time is in 'hh:mm:ss' format
+      timeInSeconds += parseInt(timeComponents[0]) * 3600;
+      timeInSeconds += parseInt(timeComponents[1]) * 60;
+      timeInSeconds += parseInt(timeComponents[2]);
+    } else if (timeComponents.length === 2) {
+      // Time is in 'mm:ss' format
+      timeInSeconds += parseInt(timeComponents[0]) * 60;
+      timeInSeconds += parseInt(timeComponents[1]);
+    }
+
+    // Convert speed to meters per second
+    if (speed_units === 'mm:ss/mi') {
+      // Split pace into minutes and seconds
+      const paceComponents = speed.split(':');
+      const minutes = parseInt(paceComponents[0]);
+      const seconds = parseInt(paceComponents[1]);
+      // Calculate speed in meters per second
+      speed =  1609.44 / ((minutes * 60) + seconds);
+  } else if (speed_units === 'mm:ss/km') {
+      // Split pace into minutes and seconds
+      const paceComponents = speed.split(':');
+      const minutes = parseInt(paceComponents[0]);
+      const seconds = parseInt(paceComponents[1]);
+      // Calculate speed in meters per second
+      speed =  1000 / ((minutes * 60) + seconds);
+  } else if (speed_units === 'mph') {
+    // Convert miles per hour to meters per second
+    speed = speed / 2.23694;
+  } else if (speed_units === 'kph') {
+    // Convert km per hour to meters per second
+    speed = speed / 3.6;
+  }
 
     // Calculate distance in meters
-    const distance = totalSeconds * speed;
+    const distanceInMeters = timeInSeconds * speed;
 
-    // Return the distance in kilometers
-    return (distance / 1000).toFixed(2);
+    if (dist_units === 'mi') {
+      // Convert meters to miles
+      return distanceInMeters / 1609.34;
+    } else if (dist_units === 'km') {
+      // Convert meters to kilometers
+      return distanceInMeters / 1000;
     }
+
+}
+
+
+
+function UpdateDistance() {
+  // Get the values of the input fields
+  var form_4a = document.getElementById('form_4a').value; //distance value
+  var form_4b = document.querySelector('input[name="form_4b"]:checked').value; //distance unit
+  var form_4c = document.getElementById('form_4c').value; //pace value
+  var form_4d = document.getElementById('form_4d').value; //pace unit
+
+  
+  // Update the output field based on the input values
+  var output = document.getElementById('form4_output');
+  output.value = calculateDistance(form_4a, form_4b, form_4c, form_4d); 
+
+}
 
 
   
