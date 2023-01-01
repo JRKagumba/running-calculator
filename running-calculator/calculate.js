@@ -106,20 +106,39 @@ function UpdatePace() {
 
 
 
-function calculateTime(distance, speed) {
-    // Calculate total seconds
-    const totalSeconds = distance / speed;
-
-    // Calculate hours, minutes, and seconds
-    const hours = Math.floor(totalSeconds / 3600);
-    const minutes = Math.floor((totalSeconds % 3600) / 60);
-    const seconds = Math.floor(totalSeconds % 60);
-
-    // Format time as 'hh:mm:ss'
-    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+function calculateTime(distance, dist_units, speed, speed_units) {
+    // Convert distance to meters
+    if (dist_units === 'km') {
+      distance = distance * 1000;
+    } else if (dist_units === 'mi') {
+      distance = distance * 1609.34;
     }
-
-
+  
+    // Convert speed to meters per second
+    if (speed_units === 'mm:ss/mile') {
+      // Convert minutes per mile to meters per second
+      speed = speed / 0.000621371 / 60;
+    } else if (speed_units === 'mm:ss/km') {
+      // Convert minutes per km to meters per second
+      speed = speed / 0.001 / 60;
+    } else if (speed_units === 'mph') {
+      // Convert miles per hour to meters per second
+      speed = speed / 2.23694;
+    } else if (speed_units === 'kph') {
+      // Convert km per hour to meters per second
+      speed = speed / 3.6;
+    }
+  
+    // Calculate time in seconds
+    const timeInSeconds = distance / speed;
+  
+    // Convert time to 'hh:mm:ss' format
+    const hours = Math.floor(timeInSeconds / 3600);
+    const minutes = Math.floor((timeInSeconds % 3600) / 60);
+    const seconds = Math.round(timeInSeconds % 60);
+    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  }
+  
 function UpdateTime() {
     // Get the values of the input fields
     var form_4a = document.getElementById('form_4a').value; //distance value
@@ -129,7 +148,7 @@ function UpdateTime() {
 
     // Update the output field based on the input values
     var output = document.getElementById('form4_output');
-    output.value = form_4a + ' ' + form_4b+ ' ' +form_4c+ ' ' +form_4d// calculatePace(form_4a, form_4b, form_4c, form_4d);
+    output.value = calculateTime(form_4a, form_4b, form_4c, form_4d); 
 
 }
 
