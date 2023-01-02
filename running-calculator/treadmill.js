@@ -15,6 +15,19 @@ const referenceTable = [
 ]
 
 
+function UpdateTreadmill() {
+    // Get the values of the input fields
+    var form_6a = document.getElementById('form_6a').value; //speed value
+    var form_6b = document.getElementById('form_6b').value; //speed unit
+    var form_6c = document.getElementById('form_6c').value; //incline 
+    var form_6d = document.getElementById('form_6d').value; //pace unit
+    
+    // Update the output field based on the input values
+    var output = document.getElementById('form6_output');
+    output.value = form_6a + ' ' + form_6b + ' ' + form_6c + ' ' + form_6d //getPace(form_6a, form_6b, form_6c, form_6d); 
+  }
+
+
 function getPace(speed, incline) {
     incline = incline.slice(0, -1); // remove the '%' sign from the incline string
   
@@ -34,4 +47,21 @@ function getPace(speed, incline) {
     // Calculate the estimated value by adding the product of the row difference and value difference to the value of the starting row
     const estimatedVal = table[row1] + (rowDiff * valDiff);
     return estimatedVal;
+  }
+
+  function interpolate(val1, val2, table) {
+    // Find the indices of the two values in the table
+    const index1 = table.findIndex(entry => entry.value === val1);
+    const index2 = table.findIndex(entry => entry.value === val2);
+  
+    // Check if either value is not present in the table
+    if (index1 === -1 || index2 === -1) {
+      return null;
+    }
+  
+    // Calculate the interpolation factor
+    const factor = (val2 - val1) / (index2 - index1);
+  
+    // Interpolate the values in the table and return the result
+    return table[index1].estimate + factor * (table[index2].estimate - table[index1].estimate);
   }
