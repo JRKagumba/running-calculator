@@ -15,6 +15,46 @@ const referenceTable = [
 ]
 
 
+function speedUnitChecker(speed, speed_units, target_speed_units) {
+    //Checks if speed in the correct units
+    if (speed_units === target_speed_units){
+        return speed
+    } else if (speed_units != target_speed_units){
+        return speed/1.609
+    }
+  }
+
+function paceUnitChecker(pace, pace_units, target_pace_units) {
+        // Checks if pace is in the correct units
+        if (pace_units === target_pace_units) {
+            return pace;
+        } else if (pace_units != target_pace_units) {
+            // Split the pace into minutes and seconds
+            let [minutes, seconds] = pace.split(":").map(str => parseInt(str, 10));
+            // Convert minutes per mile to minutes per kilometer
+            minutes = minutes / 1.609344;
+            seconds = seconds / 1.609344;
+            // Round down to the nearest minute and add any leftover seconds
+            minutes = Math.floor(minutes);
+            seconds = Math.round(seconds);
+            // If seconds is 60 or more, carry over to the minutes
+            if (seconds >= 60) {
+                minutes += Math.floor(seconds / 60);
+                seconds %= 60;
+            }
+            // Return the formatted pace string
+            return `${minutes}:${String(seconds).padStart(2, "0")}`;
+        }
+    }
+
+function getPace(speed, incline) { 
+    // Find the row in the table that corresponds to the given speed
+    const row = referenceTable.find(r => r.mph === Number(speed));  
+    return row[incline];    // Return the pace at the given incline
+  }
+
+
+
 function UpdateTreadmill() {
     // Get the values of the input fields
     var form_6a = document.getElementById('form_6a').value; //speed value
@@ -24,44 +64,12 @@ function UpdateTreadmill() {
     
     // Update the output field based on the input values
     var output = document.getElementById('form6_output');
-    output.value = form_6a + ' ' + form_6b + ' ' + form_6c + ' ' + form_6d //getPace(form_6a, form_6b, form_6c, form_6d); 
+    form_6a = speedUnitChecker(form_6a, form_6b, 'mph');
+    var pace_value = getPace(form_6a, form_6c);
+    output.value =  paceUnitChecker(pace_value, 'mm:ss/mi', form_6d);
   }
 
 
-function getPace(speed, incline) {
-    incline = incline.slice(0, -1); // remove the '%' sign from the incline string
-  
-    // Find the row in the table that corresponds to the given speed
-    const row = table.find(r => r[0] === speed);
-    if (!row) throw new Error(`Invalid speed: ${speed} MPH`);
-  
-    // Return the pace at the given incline
-    return row[incline];
-  }
 
-  function interpolate(table, row1, row2, value) {
-    // Calculate the difference between the two rows
-    const rowDiff = table[row2] - table[row1];
-    // Calculate the difference between the value you want to calculate and the value of the starting row
-    const valDiff = value - table[row1];
-    // Calculate the estimated value by adding the product of the row difference and value difference to the value of the starting row
-    const estimatedVal = table[row1] + (rowDiff * valDiff);
-    return estimatedVal;
-  }
 
-  function interpolate(val1, val2, table) {
-    // Find the indices of the two values in the table
-    const index1 = table.findIndex(entry => entry.value === val1);
-    const index2 = table.findIndex(entry => entry.value === val2);
-  
-    // Check if either value is not present in the table
-    if (index1 === -1 || index2 === -1) {
-      return null;
-    }
-  
-    // Calculate the interpolation factor
-    const factor = (val2 - val1) / (index2 - index1);
-  
-    // Interpolate the values in the table and return the result
-    return table[index1].estimate + factor * (table[index2].estimate - table[index1].estimate);
-  }
+
