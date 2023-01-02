@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="style.css" />
         <script src="convert.js"></script>
         <script src="calculate.js"></script>
+        <script src="treadmill.js"></script>
 
     </head>
     <body>
@@ -160,19 +161,42 @@
                     </div>                    
                 </form>
 
-                <hr class="solid">
-
-                <div class="run-header">
-                    <div class="run">
-                        <span id="run"></span>
-                        <button id="copy">Copy</button>
+                <!--06_treadmill_conversion-->
+                <h2>Treadmill Pace from Speed and Incline</h2>
+                <form id="form_6" name="form_6" onsubmit="return false">
+                    <div class="form-control">
+                        <label for="cars">Enter Treadmill Pace/Speed:</label>
+                        <input type="text" id="form_6a" name="unit_input" onchange="UpdateTreadmill()">
+                        <select id="form_6b" name="form_6b" onchange="UpdateTreadmill()">
+                            <option value="mph" selected>mph</option>
+                            <option value="kph">kph</option>
+                        </select>
                     </div>
-                </div>
-
-                <div class="">
-                    <label for="mnemonic">Memory Mnemonic:</label><br>
-                    <p id="mnemonic"></p>
-                </div>   
+                    <div class="form-control">
+                        <label for="form_6c">Enter Incline:</label>
+                        <select id="form_6c" name="form_6c" onchange="UpdateTreadmill()">
+                            <option value="0%" selected>0%</option>
+                            <option value="1%">1%</option>
+                            <option value="2%">2%</option>
+                            <option value="3%">3%</option>
+                            <option value="4%">4%</option>
+                            <option value="5%">5%</option>
+                            <option value="6%">6%</option>
+                            <option value="7%">7%</option>
+                            <option value="8%">8%</option>
+                            <option value="9%">9%</option>
+                            <option value="10%">10%</option>
+                        </select>
+                    </div>
+                    <div class="form-control">
+                        <label for="cars">Estimated Pace/Speed</label>
+                        <input  type="text" id="form6_output" placeholder="0" disabled>
+                        <select id="form_6d" name="form_6d" onchange="UpdateTreadmill()">
+                            <option value="mm:ss/mi" selected>mins:sec/mile</option>
+                            <option value="mm:ss/km">mins:sec/km</option>
+                        </select>
+                    </div>                   
+                </form>  
 
             </div>
             <hr>
