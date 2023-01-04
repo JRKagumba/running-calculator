@@ -8,8 +8,6 @@ A simple site I created to help me do quick running based conversions and calcul
 Try it out at [running-calculator.io](http://running-calculator.io/)
 
 
-Perceived effort is a subjective measure of how hard someone feels like they are working during physical activity, such as running. It is influenced by factors such as the intensity of the exercise, the individual's level of fitness, and their psychological state.
-
 ## Background and Motivation
 
 ### Converter and Calculator
@@ -17,8 +15,7 @@ As a runner who travels between the US and Canada frequently, I have found it ve
 
 ### Treadmill Speed Converter
 
-I've had to do quite a few runs on the treadmill during my training, doing so I found that treadmill speeds and on ground speeds are not directly comparable. The speed displayed on a treadmill is the speed at which the belt is moving under your feet, while on ground speed is the actual speed at which you are moving through the air. There are several factors that can affect your on ground speed, including the incline of the treadmill, the length of your stride, and the effect of wind resistance. A tool to convert treadmill speed to on ground speed can help me more accurately compare my treadmill runs to my outdoor runs and track my progress over time. 
-
+I've had to do quite a few runs on the treadmill during my training, in doing so I found that treadmill speeds and on ground speeds are not directly comparable. The speed displayed on a treadmill is the speed at which the belt is moving under your feet, while on ground speed is the actual speed at which you are moving through the air. There are several factors that can affect the on ground speed, including the incline of the treadmill, the length of your stride, and the effect of wind resistance. This tool focuses mainly on incline as the primary conversion factor. Conversion algorithm was borrowed from [hillrunner.com](https://www.hillrunner.com/calculators/treadmill-pace-conversions/). 
 
 
 ## Key Features
