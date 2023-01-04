@@ -12,7 +12,14 @@ Perceived effort is a subjective measure of how hard someone feels like they are
 
 ## Background and Motivation
 
-As a runner that travels between the US and Canada frequently, I have found that I have had to do metric-imperial conversions often during my training. Some are simple, i.e distance but some are a bit challenging like 'mm:ss/mile' to 'mm:ss/km' or mph. Also, as I've been training treadmills quite often, having a tool that converts treadmill speed with incline to approximate 'on ground speed' is quite useful.
+### Converter and Calculator
+As a runner who travels between the US and Canada frequently, I have found it very convenient to have tools for converting between metric and imperial units because I have come across race courses, training programs, and other resources that alternate between these units of measurement.  Some are simple, i.e distance but some are a bit challenging like 'mm:ss/mile' to 'mm:ss/km' or mph.
+
+### Treadmill Speed Converter
+
+I've had to do quite a few runs on the treadmill during my training, doing so I found that treadmill speeds and on ground speeds are not directly comparable. The speed displayed on a treadmill is the speed at which the belt is moving under your feet, while on ground speed is the actual speed at which you are moving through the air. There are several factors that can affect your on ground speed, including the incline of the treadmill, the length of your stride, and the effect of wind resistance. A tool to convert treadmill speed to on ground speed can help me more accurately compare my treadmill runs to my outdoor runs and track my progress over time. 
+
+
 
 ## Key Features
 
