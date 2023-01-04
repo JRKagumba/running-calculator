@@ -1,7 +1,5 @@
 # Running Calculator
 
-![2D-video-based-running-analysis_image](https://user-images.githubusercontent.com/63820705/210619437-82594bae-dd05-4fcb-bc5c-ffdd94179c56.png)
-
 ## Overview
 A simple site I created to help me do quick running based conversions and calculations when developing my training plan.
 
@@ -37,4 +35,4 @@ Develop the basic web app for basic conversions
 Add in race predition and improve UI 
 
 
-
+![2D-video-based-running-analysis_image](https://user-images.githubusercontent.com/63820705/210619437-82594bae-dd05-4fcb-bc5c-ffdd94179c56.png)
