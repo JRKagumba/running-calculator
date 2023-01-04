@@ -3,7 +3,7 @@
 ## Overview
 A simple site I created to help me do quick running based conversions when develpoing my training plan.
 
-Try it out at [randompasswordgenerator.io](https://random-password-generator.io/)
+Try it out at [running-calculator.io](http://running-calculator.io/)
 
 
 Perceived effort is a subjective measure of how hard someone feels like they are working during physical activity, such as running. It is influenced by factors such as the intensity of the exercise, the individual's level of fitness, and their psychological state.
