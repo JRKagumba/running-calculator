@@ -1,7 +1,7 @@
 # Running Calculator
 
 ## Overview
-A simple site I created to help me do quick running based conversions when develpoing my training plan.
+A simple site I created to help me do quick running based conversions and calculations when developing my training plan.
 
 Try it out at [running-calculator.io](http://running-calculator.io/)
 
@@ -10,26 +10,29 @@ Perceived effort is a subjective measure of how hard someone feels like they are
 
 ## Background and Motivation
 
-I found that I was often prompted to come up with complex password combinations when creating new accounts for on various sites. I decided to create my own simple web app that randomly generated a password as well as a helpful mneumonic to help in remembering the password. 
+As a runner that travels between the US and Canada frequently, I have found that I have had to do metric-imperial conversions often during my training. Some are simple, i.e distance but some are a bit challenging like 'mm:ss/mile' to 'mm:ss/km' or mph. Also, as I've been training treadmills quite often, having a tool that converts treadmill speed with incline to approximate 'on ground speed' is quite useful.
 
-To enhance the functionality, I plan to configure a pipeline that can call one of the Text-to-Image APIs to produce a unique image with the password string.
+## Key Features
+
+1. Distance Conversion
+2. Speed/Pace Conversion
+3. Pace, Time & Distance Calculation
+4. Treadmill to On Ground Speed Conversion
 
 ## Goals
 
-1. Deploy a web application for quick km to miles.
-2. Create a way to convert treadmill metrics to real world metrics.
+1. Deploy a web app with all the key features above
+2. Add in race prediction feature (i.e 1500m time ==> estimated 5000m time)
+3. Improve the UI
 
-## Practical Applications
-
-- Help individuals quickly create and remember complex passwords
 
 ## Milestones
 
 ### :white_check_mark: Phase 1 :
-Develop the web app to randomly generate passwords based on custom parameters
+Develop the basic web app for basic conversions
 
 ### :white_square_button: Phase 2 :
-Configure a pipeline that can call one of the Text-to-Image model APIs to produce a custom image for each ranomly generated password. 
+Add in race predition and improve UI 
 
 
 
