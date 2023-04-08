@@ -41,4 +41,41 @@ Develop the basic web app for basic conversions
 Add in race predition and improve UI 
 
 
-
+```
+running-calculator/
+│
+├── src/
+│   ├── components/
+│   │   ├── Converter.js
+│   │   ├── TreadmillTable.js
+│   │   └── ...
+│   │
+│   ├── utils/
+│   │   ├── calculations.js
+│   │   ├── referenceTable.js
+│   │   └── ...
+│   │
+│   ├── App.js
+│   └── index.js
+│
+├── public/
+│   ├── images/
+│   │   └── ...
+│   │
+│   ├── styles/
+│   │   ├── components/
+│   │   │   ├── _converter.scss
+│   │   │   ├── _treadmillTable.scss
+│   │   │   └── ...
+│   │   │
+│   │   ├── _variables.scss
+│   │   ├── main.scss
+│   │   └── ...
+│   │
+│   ├── index.html
+│   └── ...
+│
+├── .gitignore
+├── package.json
+└── README.md
+```
