@@ -42,40 +42,21 @@ Add in race predition and improve UI
 
 
 ```
-running-calculator/
+running-calculator-dashboard/
 │
-├── src/
-│   ├── components/
-│   │   ├── Converter.js
-│   │   ├── TreadmillTable.js
-│   │   └── ...
-│   │
-│   ├── utils/
-│   │   ├── calculations.js
-│   │   ├── referenceTable.js
-│   │   └── ...
-│   │
-│   ├── App.js
-│   └── index.js
+├── index.html
+├── css/
+│   ├── styles.css
+│   ├── dashboard.css
+│   └── goals.css
 │
-├── public/
-│   ├── images/
-│   │   └── ...
-│   │
-│   ├── styles/
-│   │   ├── components/
-│   │   │   ├── _converter.scss
-│   │   │   ├── _treadmillTable.scss
-│   │   │   └── ...
-│   │   │
-│   │   ├── _variables.scss
-│   │   ├── main.scss
-│   │   └── ...
-│   │
-│   ├── index.html
-│   └── ...
+├── js/
+│   ├── main.js
+│   ├── dashboard.js
+│   └── goals.js
 │
-├── .gitignore
-├── package.json
-└── README.md
+└── assets/
+    ├── images/
+    └── icons/
+
 ```
