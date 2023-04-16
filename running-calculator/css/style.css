@@ -31,3 +31,17 @@ section {
     padding: 1rem;
     width: 45%;
 }
+
+button {
+    background: #333;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 1rem;
+    padding: 0.5rem;
+}
+
+input[type="number"] {
+    width: 100%;
+}
+
