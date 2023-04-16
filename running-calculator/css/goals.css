@@ -1,0 +1,13 @@
+.goals {
+    background: #f4f4f4;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+}
